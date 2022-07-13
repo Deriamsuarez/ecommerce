@@ -1,8 +1,15 @@
 import { inner } from './cards.js';
 
 const orderBuys = {}
-let array = '';
 const buyCart = document.querySelector(".cartMainEverything");
+
+let emptyCart =  `<div class="imageCart">
+     <img src="https://c.tenor.com/bDlzu1tRfowAAAAd/negrito-llorando-african-kid-crying.gif">
+ </div> 
+ <h2>Aún no tienes ninún producto</h2>
+ `
+
+ buyCart.innerHTML = emptyCart
 
 
 
@@ -11,7 +18,6 @@ document.addEventListener('click', function (event) {
         const idClothes = event.target.dataset.iduser;
 
         let currentClothes = null;
-        let cartCards = []
         for (let i = 0; i < inner.length; i++) {
             if (inner[i].id === parseInt(idClothes)) {
                 currentClothes = inner[i];
@@ -29,18 +35,18 @@ document.addEventListener('click', function (event) {
         const amount = document.querySelector('#amount');
         amount.textContent = Object.entries(orderBuys).length;
 
-        // console.log(order)
-
+        let array = '';
 
         order.forEach(element => {
-            if (element) {
-                array += `<div class="buysContent">
-                <div class="imgCart"></div>
+            array += `<div class="buysContent">
+                <div class="imgCartBuy">
+                <img src="${element.img}" alt="">
+                </div>
                 <div class="infoClothes">
                     <div class="principalProductInfo">
                         <div class="clothesName">${element.type}</div>
-                        <div class="clothesprice">Stock: ${element.stock} | ${element.price}</div>
-                        <div class="subTotal">Subtotal: $${(parseInt(element.price) * (element.amount))}</div>
+                        <div class="clothesprice">Stock: ${element.stock} | $${element.price}.00</div>
+                        <div class="subTotal">Subtotal: $${(parseInt(element.price) * (element.amount))}.00</div>
                     </div>
                     <div class="buttonsCart">
                         <div class="operator">-</div>
@@ -49,18 +55,19 @@ document.addEventListener('click', function (event) {
                     </div>
                 </div>
             </div>`
-            } else {
-                
-            }
-           
+
         });
+        
+        
+        console.log(event)
+        buyCart.innerHTML = array
+
+        
+        if(event.target.classList.contains("operator")){
+            console.log(event)
+        }
     };
 
-    console.log(array)
-    buyCart.innerHTML = array
-
-}
-
-);
+});
 
 export { orderBuys }

@@ -36,7 +36,7 @@ inner.forEach(element => {
                 </div>
                 <div class="cardFooter">
                     <div class="priceContainer">
-                        <div class="price">${element.price}</div>
+                        <div class="price">$${element.price}.00</div>
                         <div class="priceSeparator"></div>
                         <div class="stock">stock: ${element.stock}</div>
                     </div>

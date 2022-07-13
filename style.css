@@ -168,6 +168,7 @@ li {
     display: flex;
     align-items: flex-end;
     margin-right: 18%;
+    transition: 1s;
 }
 
 .imgPrincipal {
@@ -188,6 +189,7 @@ li {
     /* opacity: 30%; */
     position: relative;
     display: flex;
+    cursor: pointer;
 }
 
 .number {
@@ -223,6 +225,7 @@ li {
 .contain {
     width: 100%;
     margin-left: 28px;
+    transition: 1s;
 }
 
 .contain>h1 {
@@ -300,25 +303,25 @@ button:nth-child(2):hover {
 .containerSecondMenu {
     display: flex;
     justify-content: center;
-    margin-top: 50px;
+    align-items: center;
+    margin-top: 100px;
 }
 
 .secondMenu {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    max-width: 1024px;
-    width: 100%;
-    height: 100px;
-    /* border: 1px darkblue dashed; */
-    gap: 5em;
+    min-width: 500px;
+    width: 800px;
+    display: grid;
+    gap: 1em;
+    grid-auto-rows: 5em;
+    grid-template-columns: repeat(auto-fill, minmax(5em, 1fr));
 }
 
 .infoBox {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    grid-column: span 2;
     cursor: pointer;
 }
 
@@ -356,6 +359,8 @@ button:nth-child(2):hover {
     margin-top: 1em;
     height: 400px;
     justify-content: space-around;
+    transition: 1s;
+
     /* border: 1px #262626 dashed; */
 }
 
@@ -486,17 +491,27 @@ button:nth-child(2):hover {
     position: fixed;
     width: 420px;
     height: 100vh;
-    background-color: rgba(0, 0, 255, 0.196);
+    background-color: var(--L-background);
     top: 0;
     right: 0;
     z-index: 400;
     /* display: none; */
+    margin-right: -100%;
+    transition: 3s;
+    border-radius: 10px;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .15) !important;
 }
+
+.show_cartClothesContainer {
+    margin-right: 0%;
+    transition: 1s;
+}
+
 
 .cartMain {
     width: 100%;
     height: 100%;
-    background-color: #9AD9D9;
+    background-color: var(--L-background);
     margin: 20px;
 }
 
@@ -517,23 +532,27 @@ button:nth-child(2):hover {
     position: absolute;
     display: flex;
     right: 0;
+    cursor: pointer;
 }
 
-.imageCart {
-    display: flex;
-    /* background-color: black; */
-    margin: 20px;
-    width: 90%;
-    height: 300px;
 
+.imgCart {
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
 }
 
-.imageCart>img {
+.imgCartBuy {
+    width: 100px;
+    height: 100px;
+}
+
+.imgCartBuy>img {
     width: 100%;
-    height: 300px;
-    border: solid 3px white;
+    height: 100%;
+    /* border: solid 3px white; */
     border-radius: 10px;
-    margin-top: 150px;
+    /* margin-top: 150px; */
 }
 
 .cartMainEverything {
@@ -553,36 +572,37 @@ button:nth-child(2):hover {
     /* border: 1px red dashed; */
     margin: 10px;
     display: flex;
-    gap: 3em;
-    
+    gap: 2em;
+
 }
 
-.imgCart {
-    width: 100px;
-    height: 100px;
-    background-image: url('https://academlo-store.netlify.app/assets/img/featured2.png');
-    background-size: cover;
-    border-radius: 5px;
+.imageCart>img {
+    width: 300px;
+    height: 300px;
+    border-radius: 10px;
+    border: 3px solid white;
 }
 
-.buttonsCart{
+.buttonsCart {
     display: flex;
     justify-content: center;
     gap: 1em
 }
 
-.infoClothes{
+.infoClothes {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     gap: 1em;
 }
 
-.operator{
+.operator {
     width: 20px;
     height: 20px;
-    border: 0.5px gray solid;
-    border-radius: 3px;
+    border: 1.5px solid var(--L-primary);
+    color: var(--L-primary);
+    background-color: var(--L-background);
+    border-radius: 5px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -590,20 +610,21 @@ button:nth-child(2):hover {
     /* text-align: center; */
 }
 
-.clothesName{
+.clothesName {
     font-weight: 600;
 }
 
-.principalProductInfo{
+.principalProductInfo {
     display: flex;
     flex-direction: column;
     gap: 0.2em;
 }
 
-@media screen and (max-width: 800px) {
+@media (max-width: 800px) {
 
     body {
-        overflow-x: 0;
+
+        overflow-x: hidden;
     }
 
     ul {
@@ -615,9 +636,13 @@ button:nth-child(2):hover {
         margin-right: 1em;
     }
 
-    .navBar {
-
+    .navBarContainer {
         width: 100%;
+    }
+
+    .navBar {
+        max-width: 375px;
+        width: 100vh;
         padding-left: 4%;
         padding-right: 4%;
     }
@@ -630,5 +655,64 @@ button:nth-child(2):hover {
         height: 682px;
         width: 100%;
         /* border: 1px darkblue dashed; */
+    }
+
+    .clothesCardsContainer {
+        margin-top: 400px;
+        height: 1000px
+    }
+
+    .clothesCards {
+        align-items: center;
+        flex-direction: column;
+        gap: 2em;
+        transition: 1s;
+    }
+
+    .cartClothesContainer {
+        width: 400px;
+        margin-right: -100%;
+
+    }
+
+    .show_cartClothesContainer {
+        margin-right: 0;
+        transition: 1s;
+        height: 100vh;
+    }
+
+    .contain {
+        margin-top: 430px;
+        transition: 1s;
+    }
+
+    .pictureFrame {
+        display: flex;
+        width: 250px;
+        height: 200px;
+        background-color: var(--L-primary);
+        top: 0;
+        right: 0;
+        padding: 0;
+        margin: 0;
+        position: absolute;
+    }
+
+    .principalImg {
+        width: 300px;
+        height: 400px;
+        transition: 1s;
+
+    }
+
+    .imgPrincipal>img {
+        width: 250px;
+        margin-right: 40px;
+    }
+
+    .contain>h2 {
+        margin-bottom: 1em;
+
+
     }
 }
