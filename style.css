@@ -6,15 +6,6 @@
     --L-clothes-Background: #E6E6E6;
     --L-menu: #FFFFFF;
     --L-black: #262626;
-
-    /* darks colors */
-    --D-primary: #9AD9D9;
-    --D-background: #1F1D2A;
-    --D-clothes-Background: #131218;
-    --D-menu: #1B1A23;
-
-
-
 }
 
 * {
@@ -22,10 +13,7 @@
     padding: 0;
     box-sizing: border-box;
     font-family: 'Anek Latin', sans-serif;
-
-
 }
-
 
 body {
     position: relative;
@@ -301,7 +289,7 @@ button:nth-child(2):hover {
 
 .containerSecondMenu {
     display: flex;
-    /* justify-content: center; */
+    justify-content: center;
     align-items: center;
     margin-top: 100px;
 }
@@ -313,7 +301,7 @@ button:nth-child(2):hover {
     gap: 5px;
     grid-auto-rows: 5em;
     grid-auto-columns: 3em;
-    grid-template-columns: repeat(auto-fill, minmax(5em, 2fr));
+    grid-template-columns: repeat(auto-fit, minmax(10em, 1fr));
 }
 
 .infoBox {
@@ -321,7 +309,7 @@ button:nth-child(2):hover {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    grid-column: span 2;
+    grid-column: span 1;
     cursor: pointer;
 }
 
@@ -512,9 +500,10 @@ button:nth-child(2):hover {
 
 .cartMain {
     width: 100%;
-    height: 100%;
+    height: 80%;
     background-color: var(--L-background);
     margin: 20px;
+    position: relative;
 }
 
 .headerCartContainer {
@@ -559,7 +548,7 @@ button:nth-child(2):hover {
 
 .cartMainEverything {
     width: 100%;
-    height: 100%;
+    height: 80%;
     /* background-color: black; */
     display: flex;
     flex-direction: column;
@@ -622,10 +611,98 @@ button:nth-child(2):hover {
     gap: 0.2em;
 }
 
+.footerCartContainer{
+    height: 200px;
+    width: 100%;
+    /* background-color: green; */
+    position: absolute;
+    bottom: 0;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.footerCartContainer > .total{
+    font-size: x-large;
+}
+
+
+.alignContainer{
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* border: darkblue dashed 1px; */
+}
+
+.infoPayContainer{
+    display: flex;
+    justify-content: space-between;
+}
+
+.amountItems, .total{
+    color: var(--L-black)
+}
+
+.total{
+    font-weight: 600;
+    font-size: 30px;
+}
+
+.trash{
+    color: var(--L-primary);
+    cursor: pointer;
+}
+
+
+/* footer */
+
+.footer__container {
+    margin: auto;
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    gap: 2rem;
+    /* border-bottom: 1px solid var(--L-black); */
+    padding-bottom: 3rem;
+    background-color: var(--L-background);
+    
+  }
+
+.footer {
+    height: 400px;
+  }
+
+.footer__content, .footer__links{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    
+}
+
+  a{
+    text-decoration: none;
+    color: var(--L-black);
+  }
+
+  
+ 
+
+  /* hooola */
+
+  
+
 @media (max-width: 800px) {
 
-    body {
+    *{
+        overflow-x: 0;
 
+    }
+    body {
+        max-width: 100vw;
         overflow-x: hidden;
     }
 
@@ -643,6 +720,7 @@ button:nth-child(2):hover {
         display: flex;
         /* align-items: center; */
         /* justify-content: center; */
+        right: 0;
     }
 
     .navBar {
@@ -725,17 +803,15 @@ button:nth-child(2):hover {
         width: 400px;
     }
     .secondMenu{
-        max-width: 400px;
-        width: 100%;
+        
+        width: 10px;
     }
 
     .containerMain {
-    display: grid;
+    display: flex;
 
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 2em;
 
-    max-width: 1080px;
+    max-width: 100vw;
     width: 100%;
     height: 730px;
     /* border: 1px var(--L-primary) dashed; */
